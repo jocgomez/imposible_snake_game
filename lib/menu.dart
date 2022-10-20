@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:snake_game/game.dart';
 import 'package:snake_game/services/route_service.dart';
 import 'package:snake_game/services/user_service.dart';
 import 'model/user.dart';
@@ -115,7 +116,7 @@ class _MenuState extends State<Menu> {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.data != null) {
           User user = snapshot.data!; // can't be null
-          return const Scaffold(); //Game(user);
+          return Game(user);
         }
         return Container();
       },
