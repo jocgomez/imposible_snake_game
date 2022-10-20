@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:snake_game/game.dart';
+import 'package:snake_game/manager/asset_manager.dart';
+import 'package:snake_game/manager/value_manager.dart';
 import 'package:snake_game/services/route_service.dart';
 import 'package:snake_game/services/user_service.dart';
 import 'model/user.dart';
@@ -43,24 +45,30 @@ class _MenuState extends State<Menu> {
                 child: Stack(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(ValueManager.vd15),
                       child: Align(
                         alignment: Alignment.topRight,
                         child: Text(
                           "Highscore: ${user.highScore}",
                           style: const TextStyle(
-                              fontSize: 18, color: Colors.white),
+                            fontSize: ValueManager.vd18,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
                     Align(
-                        alignment: Alignment.center,
-                        child: Image.asset("assets/img/logo2.png",
-                            width: 500, height: 500)),
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        AssetManager.logo2,
+                        width: ValueManager.vd500,
+                        height: ValueManager.vd500,
+                      ),
+                    ),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                        padding: const EdgeInsets.all(25),
+                        padding: const EdgeInsets.all(ValueManager.vd25),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,24 +92,29 @@ class _MenuState extends State<Menu> {
 
   Widget _button(String text, Function() onTap, Color color, Icon icon) {
     return Padding(
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(ValueManager.vd5),
       child: ElevatedButton.icon(
         onPressed: onTap,
         icon: icon,
         style: ButtonStyle(
           padding: MaterialStateProperty.all(
-            const EdgeInsets.only(left: 50, right: 50, top: 10, bottom: 10),
+            const EdgeInsets.only(
+              left: ValueManager.vd50,
+              right: ValueManager.vd50,
+              top: ValueManager.vd10,
+              bottom: ValueManager.vd10,
+            ),
           ),
           backgroundColor: MaterialStateProperty.all(color),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(ValueManager.vd15),
             ),
           ),
         ),
         label: Text(
           text,
-          style: const TextStyle(fontSize: 22),
+          style: const TextStyle(fontSize: ValueManager.vd22),
         ),
       ),
     );
