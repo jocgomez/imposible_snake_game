@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import 'package:snake_game/utils/bot.dart';
 import 'package:snake_game/manager/asset_manager.dart';
 import 'package:snake_game/manager/value_manager.dart';
 import 'package:snake_game/model/board.dart';
@@ -116,10 +118,10 @@ class _GameState extends State<Game> {
   }
 
   updateGame() {
-    /* checkToSpawnBot();
+    checkToSpawnBot();
     if (bots.isNotEmpty) {
       moveBots();
-    } */
+    }
 
     setState(() {
       moveSnake();
@@ -338,9 +340,14 @@ class _GameState extends State<Game> {
                         return botPart();
                       }
                     }
+                    for (var i = 0; i < placeHolderBots.length; i++) {
+                      if (placeHolderBots[i].positions.contains(index)) {
+                        // ignore: prefer_const_constructors
+                        return PlaceHolderBot();
+                      }
+                    }
+                    return boardSquare();
                   }
-
-                  return boardSquare();
                 },
               ),
             ),
