@@ -48,7 +48,7 @@ showGameOverDialog(
         borderRadius: BorderRadius.circular(12.0)), //this right here
     child: Container(
       color: Colors.transparent,
-      height: MediaQuery.of(context).size.height / 2.5,
+      height: MediaQuery.of(context).size.height / 2,
       width: MediaQuery.of(context).size.width / 3,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
